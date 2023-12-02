@@ -29,3 +29,8 @@
     float: left;
     box-sizing: border-box;
 }
+
+.piece {
+    font-size: 15px;
+    color: aqua;
+}
