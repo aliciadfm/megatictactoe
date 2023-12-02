@@ -29,12 +29,15 @@ function placePiece() {
         let subQuadrant = event.target;
         if (subQuadrant.classList.contains('quadrant')) {
             subQuadrant.textContent.className = 'piece';
-            if(count % 2 == 0) {
+            if(subQuadrant.textContent !== "") {
+            } else if(count % 2 === 0) {
                 subQuadrant.textContent = "X";
+                count++;
             } else {
                 subQuadrant.textContent = "O";
+                count++;
             }
-            count++;
+
         }
     });
 
