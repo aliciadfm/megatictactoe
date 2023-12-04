@@ -1,5 +1,5 @@
 createBoard();
-placePiece();
+playing();
 
 
 var count = 0;
@@ -23,23 +23,79 @@ function createBoard() {
     }
 }
 
-function placePiece() {
-    let bigbox = document.getElementById("bigbox");
+function playing() {
+    let bigbox = document.getElementById('bigbox');
+    let turntext = document.getElementById('turntext');
     bigbox.addEventListener('click', function () {
+
         let subQuadrant = event.target;
         if (subQuadrant.classList.contains('quadrant')) {
-            subQuadrant.textContent.className = 'piece';
             if(subQuadrant.textContent !== "") {
             } else if(count % 2 === 0) {
+                turntext.innerHTML = 'O';
                 subQuadrant.textContent = "X";
                 count++;
             } else {
+                turntext.innerHTML = 'X';
                 subQuadrant.textContent = "O";
                 count++;
             }
-
+        }
+        if(isWin()) {
+            turntext.innerHTML = "win";
         }
     });
+}
 
+function isWin() {
+    //Check all rows
+    for(let i = 1; i <= 9; i++) {
+        //Check all rows
+        if(document.getElementById(i + "1").innerHTML !== "" &&
+            document.getElementById(i + "1").innerHTML === document.getElementById(i + "2").innerHTML &&
+            document.getElementById(i + "2").innerHTML === document.getElementById(i + "3").innerHTML) {
+            return true;
+        }
+        if(document.getElementById(i + "4").innerHTML !== "" &&
+            document.getElementById(i + "4").innerHTML === document.getElementById(i + "5").innerHTML &&
+            document.getElementById(i + "5").innerHTML === document.getElementById(i + "6").innerHTML) {
+            return true;
+        }
+        if(document.getElementById(i + "7").innerHTML !== "" &&
+            document.getElementById(i + "7").innerHTML === document.getElementById(i + "8").innerHTML &&
+            document.getElementById(i + "8").innerHTML === document.getElementById(i + "9").innerHTML) {
+            return true;
+        }
+
+        //Check all columns
+        if(document.getElementById(i + "1").innerHTML !== "" &&
+            document.getElementById(i + "1").innerHTML === document.getElementById(i + "4").innerHTML &&
+            document.getElementById(i + "4").innerHTML === document.getElementById(i + "7").innerHTML) {
+            return true;
+        }
+        if(document.getElementById(i + "2").innerHTML !== "" &&
+            document.getElementById(i + "2").innerHTML === document.getElementById(i + "5").innerHTML &&
+            document.getElementById(i + "5").innerHTML === document.getElementById(i + "8").innerHTML) {
+            return true;
+        }
+        if(document.getElementById(i + "3").innerHTML !== "" &&
+            document.getElementById(i + "3").innerHTML === document.getElementById(i + "6").innerHTML &&
+            document.getElementById(i + "6").innerHTML === document.getElementById(i + "9").innerHTML) {
+            return true;
+        }
+
+        //Check all diagonals
+        if(document.getElementById(i + "1").innerHTML !== "" &&
+            document.getElementById(i + "1").innerHTML === document.getElementById(i + "5").innerHTML &&
+            document.getElementById(i + "5").innerHTML === document.getElementById(i + "9").innerHTML) {
+            return true;
+        }
+        if(document.getElementById(i + "3").innerHTML !== "" &&
+            document.getElementById(i + "3").innerHTML === document.getElementById(i + "5").innerHTML &&
+            document.getElementById(i + "5").innerHTML === document.getElementById(i + "7").innerHTML) {
+            return true;
+        }
+    }
+    return false;
 }
 
