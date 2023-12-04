@@ -27,7 +27,6 @@ function playing() {
     let bigbox = document.getElementById('bigbox');
     let turntext = document.getElementById('turntext');
     bigbox.addEventListener('click', function () {
-
         let subQuadrant = event.target;
         if (subQuadrant.classList.contains('quadrant')) {
             if(subQuadrant.textContent !== "") {
@@ -44,6 +43,21 @@ function playing() {
         if(isWin()) {
             turntext.innerHTML = "win";
         }
+
+        function shadow () {
+            let k = subQuadrant.id;
+            let v = k.charAt(k.length-1);
+            for(let i = 1; i <= 9; i++) {
+                if(i == v) {
+                    document.getElementById(i.toString()).style.filter = 'brightness(1)';
+                } else {
+                    document.getElementById(i.toString()).style.filter = 'brightness(0.85)';
+                }
+            }
+
+        }
+
+        shadow();
     });
 }
 

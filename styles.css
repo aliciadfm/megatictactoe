@@ -6,6 +6,10 @@
     margin: 0;
 }
 
+body {
+    user-select: none;
+}
+
 #divforturn {
     /*border: 2px solid red;*/
     position: absolute;
@@ -39,4 +43,5 @@
     box-sizing: border-box;
     font-size: 8vh;
     font-family: 'Nunito', sans-serif;
+    background-color: white;
 }
