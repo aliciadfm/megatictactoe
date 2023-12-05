@@ -9,8 +9,9 @@ A modified Tic Tac Toe with new mechanics. It consists in 10 Tic tac Toes. Nine 
 - The ultimate goal is to win the big Tic Tac Toe.
 
 ## Screenshots
-![tictactoe](https://github.com/aliciadfm/megatictactoe/assets/125913349/138f285c-d3c5-4f28-ac78-212d038c17c9)
-![tictactoe2](https://github.com/aliciadfm/megatictactoe/assets/125913349/d92e7033-3fdc-4c99-8bc7-eca29ea2aa3d)
+![tictactoe3](https://github.com/aliciadfm/megatictactoe/assets/125913349/d8326d79-ba15-43a2-a14a-124810c7f04f)
+![tictactoe4](https://github.com/aliciadfm/megatictactoe/assets/125913349/ac226297-f58e-4893-83b2-ef5052f0c6b2)
+
 
 ## How to play
 - Clone the repository: git clone https://github.com/aliciadfm/megatictactoe.git
